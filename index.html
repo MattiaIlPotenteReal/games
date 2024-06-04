@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Player</title>
+  <style>
+    /* Add some basic styling to make the video player look nicer */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #video-player {
+      width: 100%;
+      height: 500px; /* Adjust the height to fit your desired video size */
+      margin: 0 auto;
+      background-color: #333;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Video Player</h1>
+  <input type="text" id="video-id" placeholder="Enter YouTube video ID">
+  <button id="play-video">Play Video</button>
+  <div id="video-player">
+    <iframe id="youtube-iframe" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const videoIdInput = document.getElementById('video-id');
+    const playVideoButton = document.getElementById('play-video');
+    const youtubeIframe = document.getElementById('youtube-iframe');
+
+    let videoId = 'gF4uXGcliu8'; // default video ID
+
+    playVideoButton.addEventListener('click', () => {
+      videoId = videoIdInput.value.trim();
+      if (videoId) {
+        youtubeIframe.src = `https://www.youtube.com/embed/${videoId}`;
+      } else {
+        console.error('Invalid video ID');
+      }
+    });
+  </script>
+</body>
+</html>
